@@ -9,8 +9,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import Matchers._
+import org.slf4j.{LoggerFactory, Logger}
 
 class ShortUSpec extends FlatSpec with Matchers with WebBrowser{
+	val logger = LoggerFactory.getLogger(getClass)
 	implicit val webDriver : WebDriver = new HtmlUnitDriver
 	val host = "http://localhost:8080/"
 
@@ -24,9 +26,16 @@ class ShortUSpec extends FlatSpec with Matchers with WebBrowser{
 	   click on "link"
 	   enter("http://www.apple.com/mac/")
 	   submit()
-	   val x = webDriver.findElement(By.id("link")) 
-	   print("x: ", x.getText)
-	   x should not be ("")
+	   val x = webDriver.findElement(By.id("link")).getText 
+
+	   //val x = webDriver.findElement(By.tagName("body")).getText
+	   //println(x)
+
+	   //if (x.length > 0)
+	   	 //println(x.length)
+	   //println(x.getText)
+	     //logger.info(we.getText())
+	   x should  be ("")
     }
 
     "submit Url to shorten" should "return valid link or token" in {
@@ -36,5 +45,13 @@ class ShortUSpec extends FlatSpec with Matchers with WebBrowser{
 	   submit()
     }
 
+    "submit invalid Url to shorten" should "not return valid link or token" in {
+       go to (host + "index.html")	
+	   click on "link"
+	   enter("ttp://www.apple.com/mac/")
+	   submit()
+	   val x = webDriver.findElement(By.id("link")).getText 
+	   x should be ("")
+    }
 
 }

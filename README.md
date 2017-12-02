@@ -34,7 +34,7 @@ Architecture:
   
 Application notes:
 
-# generate scalatra based web app from scratch
+generate scalatra based web app from scratch:
 sbt new scalatra/scalatra.g8
 
 

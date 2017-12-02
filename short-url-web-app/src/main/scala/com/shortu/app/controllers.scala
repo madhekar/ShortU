@@ -17,8 +17,8 @@ object validateUrl {
   }
 }
 /*
-  tried two ways to implement creation of short url. That calls for comprihensive understanding of product
-  how many users, access frequency that technically dictates the size of key. This is becuase one also
+  tried two ways to implement creation of short url. That calls for comprehensive understanding of product
+  how many users, access frequency that technically dictates the size of key. This is because one also
   needs to consider valid characters supported by URL standards. That leads to 62 characters could be used 
   to create a key i.e. a-z,A-Z,0-9 technically additional symbol chars could also be used incase roughly 
   7 char not acceptable. base conversion to 62 gives quite a bit flexibility and range. Additionally 

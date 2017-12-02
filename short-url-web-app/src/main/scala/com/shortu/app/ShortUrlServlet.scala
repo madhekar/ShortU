@@ -2,8 +2,10 @@ package com.shortu.app
 
 import org.scalatra._
 import scalate.ScalateSupport
+import org.slf4j.{LoggerFactory, Logger}
 
 class ShortUrlServlet extends ScalaLinkShortenerEngine {
+  val logger = LoggerFactory.getLogger(getClass)
 
   get("/") {
   	contentType="text/html"
@@ -12,9 +14,9 @@ class ShortUrlServlet extends ScalaLinkShortenerEngine {
 
   get("/:link"){
   	val link = params("link")
-    println(link)
+    logger.info(link.toString)
   	contentType="text/html"
-  	val x:String = LinkController.getLink("sdfsd")
+  	val x:String = LinkController.getLink("https://www.apple.com/mac")
     LinkController.getLink(link.toString) match {
       case str:String => redirect(str)
       case null => serveStaticResource() getOrElse resourceNotFound()
