@@ -42,7 +42,7 @@ class ShortUrlServlet extends ScalaLinkShortenerEngine {
     */
     LinkController.getNextToken(link) match {
     	case token: String => {
-                  println(token)
+                  logger.info(token)
                   outputTemplate("link" -> token, "oldLink" -> link)
                 }
     	case _=> outputTemplate("displayForm" -> true, "oldLink" -> link)	

@@ -28,21 +28,16 @@ class ShortUSpec extends FlatSpec with Matchers with WebBrowser{
 	   submit()
 	   val x = webDriver.findElement(By.id("link")).getText 
 
-	   //val x = webDriver.findElement(By.tagName("body")).getText
-	   //println(x)
+       //inconsistant result with selenium.??
+	   //val y = webDriver.findElement(By.tagName("a")).getText //body, h3
+	   //val y = webDriver.findElement(By.xpath("html/body/div/div/div/h3")).getText
+	   logger.info(x)
 
 	   //if (x.length > 0)
 	   	 //println(x.length)
 	   //println(x.getText)
 	     //logger.info(we.getText())
-	   x should  be ("")
-    }
-
-    "submit Url to shorten" should "return valid link or token" in {
-       go to (host + "index.html")	
-	   click on "link"
-	   enter("http://www.apple.com/mac/")
-	   submit()
+	   x should be ("") //selenum test thowns exception with xpath search ?? need to research :(
     }
 
     "submit invalid Url to shorten" should "not return valid link or token" in {

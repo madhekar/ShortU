@@ -10,7 +10,7 @@ randomness to generate unique links.
 - This could be resolved by checking if shortened key already existing redis data store. which is overkill
 for prototype.
 - some keys will be duplicate to handle requirement which mandates, not generating keys for already shortened urls. This is performance decision over bit extra storage cost.
-- 
+- scala selenum test couple of inconsistent results with findElement by tagName, className  
 
 
 Assumptions:
