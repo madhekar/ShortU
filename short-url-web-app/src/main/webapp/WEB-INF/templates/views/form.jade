@@ -1,0 +1,7 @@
+- attributes("title") ="Welcome to the Scala Url Shortener" 
+
+form{"method" => "POST", "action" => "/"}
+  .form-group
+    label{:for => "link"} URL to get a Shortened Link
+    input{:type => "url", :name => "link", :id => "link", :class => "form-control", :placeholder => "https://www.google.com"}
+  button{:type => "submit", :class => "btn btn-success"} Shorten the url!

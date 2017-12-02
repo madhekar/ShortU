@@ -13,4 +13,15 @@ class ShortUrlServletTests extends ScalatraSuite with FunSuiteLike {
     }
   }
 
+  test("POST to / ShortUrlServlet should return status 200"){
+  	post("/http://www.apple.com/mac"){
+  		status should equal (200)
+  	}
+  }
+
+  test("GET / on token should return 200 or 302, for www.apple.com if not after post"){
+  	get("/LBeYkb9X"){
+  		status should (equal(302) or equal(200))
+  	}
+  }
 }
