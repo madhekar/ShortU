@@ -3,7 +3,7 @@ package com.shortu.app
 import org.scalatra._
 import scalate.ScalateSupport
 
-class ShortUrlServlet extends MyScalaLinkShortenerStack {
+class ShortUrlServlet extends ScalaLinkShortenerEngine {
 
   get("/") {
   	contentType="text/html"
